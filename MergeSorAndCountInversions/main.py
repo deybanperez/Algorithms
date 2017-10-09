@@ -44,4 +44,4 @@ for line in f:
     array.append(int(line))
 f.close()
 result = mergeSortAndCountInversions(array, 0)
-print(result[1])
+print(result)
