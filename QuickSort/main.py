@@ -1,9 +1,12 @@
+import random
+
 def quicksort(array, lo, hi):
     total = 0
     if lo < hi:
         # swap(array, lo, lo) # first element as pivot 162085
         # swap(array, lo, hi) # last element as pivot 164123
         swap(array, lo, median(array, lo, lo + ((hi - lo) // 2), hi))  # median number as pivot 138382
+        # swap(array, lo, goodRandomPivot(lo, hi))
 
         total = hi - lo
         p = partition(array, lo, hi)
@@ -11,6 +14,12 @@ def quicksort(array, lo, hi):
         total += quicksort(array, p + 1, hi)
 
     return total
+
+
+def goodRandomPivot(a, b):
+    len = b - a
+    ran = random.randint(a + (len // 4), b - (len // 4))
+    return ran
 
 
 def swap(array, a, b):
